@@ -21,9 +21,9 @@ class Solution {
             adj.get(v).add(new Pair(u, chance));
         }
         double[] ans = new double[n];
-        ans[src] = 1.0;
+        ans[src] = 1;
         PriorityQueue<Pair> pq = new PriorityQueue<>();
-        pq.add(new Pair(src, 1.0));
+        pq.add(new Pair(src, 1));
         while (!pq.isEmpty()) {
             Pair top = pq.poll();
             int node = top.node;
