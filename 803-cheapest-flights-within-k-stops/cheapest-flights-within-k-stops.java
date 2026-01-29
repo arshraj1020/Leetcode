@@ -14,7 +14,7 @@ class Solution {
             this.stops = stops;
         }
         public int compareTo(Triplate t){
-            return this.stops - t.stops;
+            return Integer.compare(this.stops , t.stops);
         }
     }
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
