@@ -34,7 +34,7 @@ class Solution {
         while(pq.size() > 0){
             Triplate top = pq.remove();
             int to = top.to; int cost = top.cost; int stops = top.stops;
-            if(stops == k+1 && to == dst) return ans[to];
+            // if(stops == k+1 && to == dst) return ans[to];
             if(stops == k+1) continue;
             for(Pair p : adj.get(to)){
                 int going = p.to;
