@@ -4,11 +4,8 @@ class Solution {
         int deletions = 0;
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if (ch == 'b') {
-                bCount++;
-            } else {
-                deletions = Math.min(deletions + 1, bCount);
-            }
+            if(ch=='b') bCount++;
+            else deletions = Math.min(deletions + 1, bCount);
         }
         return deletions;
     }
