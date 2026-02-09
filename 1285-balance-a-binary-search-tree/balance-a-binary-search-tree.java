@@ -11,7 +11,7 @@ class Solution {
         TreeNode temp = arr.get(mid);
         temp.left = Attach(arr , mid-1, inLo);
         temp.right = Attach(arr , inHi, mid+1);
-        return arr.get((inHi+inLo)/2);
+        return arr.get(mid);
     }
     public TreeNode balanceBST(TreeNode root) {
         ArrayList<TreeNode> arr = new ArrayList<>();
