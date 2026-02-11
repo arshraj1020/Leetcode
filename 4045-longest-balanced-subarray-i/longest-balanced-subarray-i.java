@@ -1,17 +1,42 @@
+import java.util.*;
+
 class Solution {
     public int longestBalanced(int[] nums) {
-        HashSet<Integer> odd = new HashSet<>();
-        HashSet<Integer> even = new HashSet<>();
-        int ans = 0;
-        for(int i=0; i<nums.length; i++){
-            odd.clear(); even.clear();
-            for(int j=i; j<nums.length; j++){
+
+        int n = nums.length;
+        int maxLen = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            Map<Integer, Integer> freq = new HashMap<>();
+            int distinctEven = 0;
+            int distinctOdd = 0;
+
+            for (int j = i; j < n; j++) {
+
                 int num = nums[j];
-                if(num%2==0) even.add(num);
-                else odd.add(num);
-                if(even.size() == odd.size())  ans = Math.max(ans , j-i+1);
+
+                freq.put(num, freq.getOrDefault(num, 0) + 1);
+
+                // If first time seeing this number in this subarray
+                if (freq.get(num) == 1) {
+                    if (num % 2 == 0) {
+                        distinctEven++;
+                    } else {
+                        distinctOdd++;
+                    }
+                }
+
+                if (distinctEven == distinctOdd) {
+                    maxLen = Math.max(maxLen, j - i + 1);
+                }
+
+                // Small pruning:
+                // If remaining elements can't beat maxLen, break
+                if (n - i <= maxLen) break;
             }
         }
-        return ans;
+
+        return maxLen;
     }
 }
