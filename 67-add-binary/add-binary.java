@@ -3,7 +3,6 @@ class Solution {
         int n = a.length(), m = b.length();
         StringBuilder ans = new StringBuilder();
         int carry = 0;
-
         for(int i = n - 1, j = m - 1; i >= 0 || j >= 0; i--, j--) {
             char x = (i >= 0) ? a.charAt(i) : '0';
             char y = (j >= 0) ? b.charAt(j) : '0';
