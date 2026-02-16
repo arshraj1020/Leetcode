@@ -1,23 +1,20 @@
 class Solution {
+    public void Dfs(int node , int n , List<List<Integer>> ans , List<Integer> curr , int[][] graph){
+        if(node == n-1) {
+            ans.add(new ArrayList<>(curr));
+            return;
+        }
+        for(int ele : graph[node]){
+            curr.add(ele);
+            Dfs(ele , graph.length, ans , curr , graph);
+            curr.remove(curr.size()-1);
+        }
+    }
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         List<List<Integer>> ans = new ArrayList<>();
-        Queue<List<Integer>> q = new LinkedList<>();
         List<Integer> curr = new ArrayList<>();
         curr.add(0);
-        q.add(curr);
-        while(q.size()>0){
-            curr = q.remove();
-            int v = curr.get(curr.size()-1);
-            if(v == graph.length-1) {
-                ans.add(curr);
-                continue;
-            }
-            for(int ele : graph[v]){
-                List<Integer> temp = new ArrayList<>(curr);
-                temp.add(ele);
-                q.add(temp);
-            }
-        }
+        Dfs(0 , graph.length, ans , curr , graph);
         return ans;
     }
 }
