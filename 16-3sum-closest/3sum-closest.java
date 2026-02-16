@@ -15,7 +15,6 @@ class Solution {
                 else x++;
             }
         }
-        if(ans == Integer.MAX_VALUE) return -1;
         return ans;
     }
 }
