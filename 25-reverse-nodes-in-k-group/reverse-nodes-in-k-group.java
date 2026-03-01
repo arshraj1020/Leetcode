@@ -2,10 +2,10 @@ class Solution {
     public ListNode rev(ListNode F , ListNode L){
         ListNode prev = null;
         while(F!=L){
-            ListNode next = F.next;
+            ListNode FN = F.next;
             F.next = prev;
             prev = F;
-            F = next;
+            F = FN;
         }
         return prev;
     }
