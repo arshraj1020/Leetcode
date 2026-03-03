@@ -1,8 +1,5 @@
 class Solution {
     public ListNode modifiedList(int[] nums, ListNode head) {
-        if(head.next == null){
-            if(head.val == nums[0]) return null;
-        }
         HashSet<Integer> set = new HashSet<>();
         for(int ele : nums){
             set.add(ele);
@@ -15,7 +12,6 @@ class Solution {
                 prev.next = curr.next;
                 curr = prev.next;
             }else{
-                if(curr == null) break;
                 curr = curr.next;
                 prev = prev.next;
             }
