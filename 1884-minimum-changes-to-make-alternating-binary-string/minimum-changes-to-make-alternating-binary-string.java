@@ -21,7 +21,7 @@ class Solution {
         return op;
     }
     public int minOperations(String org) {
-        String s = new String(org);
+        String s = org;
         int first = count(s , 0);
 
         if(s.charAt(0) == '0'){
