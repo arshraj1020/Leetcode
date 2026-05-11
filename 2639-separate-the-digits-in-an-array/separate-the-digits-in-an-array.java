@@ -9,6 +9,10 @@ class Solution {
             }
             ans.addAll(curr.reversed());
         }
-        return ans.stream().mapToInt(Integer::intValue).toArray();
+        int[] result = new int[ans.size()];
+        for(int i=0; i<ans.size(); i++){
+            result[i] = ans.get(i);
+        }
+        return result;
     }
 }
