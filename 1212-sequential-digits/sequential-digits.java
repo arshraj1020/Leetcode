@@ -7,6 +7,7 @@ class Solution {
                 n *= 10;
                 n += j;
                 if( n>= low && n<= high) ans.add(n);
+                if(n > high) break;
             }
         }
         Collections.sort(ans);
