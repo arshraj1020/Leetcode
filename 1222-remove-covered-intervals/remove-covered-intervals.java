@@ -9,7 +9,7 @@ class Solution {
         int ans = 0;
         int end = -1;
         for (int[] interval : intervals) {
-            if (interval[1] > end) {
+            if(interval[1] > end) {
                 ans++;
                 end = interval[1];
             }
