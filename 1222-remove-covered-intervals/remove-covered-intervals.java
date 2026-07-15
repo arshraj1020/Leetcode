@@ -6,14 +6,14 @@ class Solution {
             }
             return a[0] - b[0];
         });
-        int count = 0;
-        int end = 0;
+        int ans = 0;
+        int end = -1;
         for (int[] interval : intervals) {
             if (interval[1] > end) {
-                count++;
+                ans++;
                 end = interval[1];
             }
         }
-        return count;
+        return ans;
     }
 }
