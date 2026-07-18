@@ -1,15 +1,15 @@
 class Solution {
-    public int GCD(int a , int b){
-        if(a%b==0) return b;
+    private int GCD(int a , int b){
+        if(a % b == 0) return b;
         return GCD(b , a%b);
     }
     public int findGCD(int[] nums) {
-        int a = Integer.MIN_VALUE;
-        int b = Integer.MAX_VALUE;
-        for(int i=0; i<nums.length; i++){
-            a = Math.max(a , nums[i]);
-            b = Math.min(b , nums[i]);
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int ele : nums){
+            max = Math.max(max , ele);
+            min = Math.min(min , ele);
         }
-        return GCD(a,b);
+        return GCD(max , min);
     }
 }
