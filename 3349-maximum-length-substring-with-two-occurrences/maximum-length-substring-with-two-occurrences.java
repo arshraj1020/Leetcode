@@ -8,7 +8,6 @@ class Solution {
                 if(map.containsKey(ch)){
                     int freq = map.get(ch);
                     if(freq == 2){
-                        max = Math.max(max , j-i);
                         break;
                     }else map.put(ch , freq+1);
                 }else map.put(ch , 1);
