@@ -30,12 +30,12 @@ class Solution {
 
         HashSet<String> set = new HashSet<>();
         for(String s : words){
-            String curr = "";
+            StringBuilder curr = new StringBuilder();
             for(int i=0; i<s.length(); i++){
                 char ch = s.charAt(i);
-                curr += mp.get(ch);
+                curr.append(mp.get(ch));
             }
-            set.add(curr);
+            set.add(curr.toString());
         }
         return set.size();
     }
