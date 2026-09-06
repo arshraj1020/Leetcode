@@ -3,9 +3,9 @@ class Solution {
         if(j == t.length()) return 1;
         if(i == s.length()) return 0;
         if(dp[i][j] != -1) return dp[i][j];
-        int notTake = count(i+1 , j, s , t, dp);
         int take = 0;
         if(s.charAt(i) == t.charAt(j)) take = count(i+1 , j+1, s , t, dp);
+        int notTake = count(i+1 , j, s , t, dp);
         return dp[i][j] = take + notTake;
     }
     public int numDistinct(String s, String t) {
