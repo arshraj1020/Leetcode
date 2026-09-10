@@ -4,15 +4,10 @@ class Solution {
         int i=0;
         while(i < word1.length() && i < word2.length()){
             sb.append(word1.charAt(i));
-            sb.append(word2.charAt(i));
-            i++;
-        }
-        while(i < word1.length()){
-            sb.append(word1.charAt(i++));
-        }
-        while(i < word2.length()){
             sb.append(word2.charAt(i++));
         }
+        while(i < word1.length()) sb.append(word1.charAt(i++));
+        while(i < word2.length()) sb.append(word2.charAt(i++));
         return sb.toString();
     }
 }
