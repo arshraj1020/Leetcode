@@ -29,9 +29,7 @@ class Solution {
         for(int i=0; i<level; i++) ans.add(new ArrayList<>());
         fill(root , ans);
         if(level == 1) return ans;
-        for(int i=1; i<level; i+= 2){
-            Collections.reverse(ans.get(i));
-        }
+        for(int i=1; i<level; i+= 2) Collections.reverse(ans.get(i));
         return ans;
     }
 }
