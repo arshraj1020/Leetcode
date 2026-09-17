@@ -4,7 +4,9 @@ class Solution {
         while(curr != null){
             if(curr.left != null){
                 TreeNode lef = curr.left;
-                while(lef.right != null) lef = lef.right;
+                while(lef.right != null){
+                    lef = lef.right;
+                }
                 lef.right = curr.right;
                 curr.right = curr.left;
                 curr.left = null;
