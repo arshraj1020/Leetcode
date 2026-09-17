@@ -12,9 +12,9 @@ class Solution {
         return dp[step][i] = (int)(ans % 1000000007);
     }
     public int numWays(int steps, int arrLen) {
-        int maxPos = Math.min(arrLen, steps / 2 + 1);
-        int[][] dp = new int[steps + 1][maxPos];
+        arrLen = Math.min(steps, arrLen);
+        int[][] dp = new int[steps + 1][arrLen];
         for (int i = 0; i <= steps; i++) Arrays.fill(dp[i], -1);
-        return ways(steps , maxPos, 0, 0, dp);
+        return ways(steps , arrLen, 0, 0, dp);
     }
 }
