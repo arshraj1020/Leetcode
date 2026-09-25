@@ -8,7 +8,7 @@ class Solution {
                 st.pop();
                 count++;
             }
-            if (!st.isEmpty()) count++;
+            count = !st.isEmpty() ? count + 1 : count;
             ans[i] = count;
             st.push(heights[i]);
         }
