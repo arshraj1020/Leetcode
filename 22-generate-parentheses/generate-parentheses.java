@@ -1,23 +1,21 @@
 class Solution {
-    public void genrate(int n , String s, int nOpen , int nClose , List<String> ans){
-        int m = s.length();
-        if(nOpen == n && nClose == n){
-            ans.add(s);
+    List<String> ans = new ArrayList<>();
+    public void helper(String curr, int n, int open, int close){
+        int m = curr.length();
+        if(open == n && close == n){
+            ans.add(curr);
             return;
         }
-        if(m == 0) genrate(n , s+'(' , nOpen+1 , nClose , ans);
-        else if(nOpen<n && nOpen>=nClose){
-            genrate(n , s+')' , nOpen , nClose+1 , ans);
-            genrate(n , s+'(' , nOpen+1 , nClose , ans);
-        }else if(nOpen == n){
-            genrate(n , s+')' , nOpen , nClose+1 , ans);
+        if(m == 0) helper(curr + '(' , n, open+1, close);
+        else if(open < n && open >= close) {
+            helper(curr + ')' ,n, open, close+1);
+            helper(curr + '(' ,n, open+1, close);
         }
+        else if(open == n) helper(curr + ')' ,n, open, close+1);
+
     }
     public List<String> generateParenthesis(int n) {
-        int nOpen = 0;
-        int nClose = 0;
-        List<String> ans = new ArrayList<>();
-        genrate(n , "" , nOpen , nClose , ans);
+        helper("", n , 0, 0);
         return ans;
     }
 }
