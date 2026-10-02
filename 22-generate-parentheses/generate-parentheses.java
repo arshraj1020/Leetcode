@@ -6,7 +6,7 @@ class Solution {
             ans.add(curr);
             return;
         }
-        if(open > n || close > open) return;
+        if(close > open || open > n) return;
         if(m == 0) helper(curr + '(' , n, open+1, close, dp);
         else if(open < n && open >= close) {
             helper(curr + ')' ,n, open, close+1, dp);
